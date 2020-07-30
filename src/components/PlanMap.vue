@@ -19,6 +19,12 @@
         name: 'PlanMap',
         props: {},
         data () {},
+        mounted() {
+            new google.maps.Map(this.$refs.map, {
+                center: { lat: 34.7024898,lng: 135.4937619 },
+                zoom: 13
+            })
+        }
     }
 
 </script>
