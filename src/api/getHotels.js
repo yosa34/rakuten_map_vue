@@ -4,7 +4,7 @@ import axios from 'axios'
  * ホテルへの接続は、axiosを使って実装する
  */
 export default function (params = {}) {
-    axios.get(
+    return axios.get(
         'https://app.rakuten.co.jp/services/api/Travel/VacantHotelSearch/20170426',
         {
             params: {
