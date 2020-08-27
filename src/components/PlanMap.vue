@@ -20,12 +20,17 @@
         props: {},
         data () {},
         mounted() {
+            const center = { lat: 34.7024898,lng: 135.4937619 }
             const map = new google.maps.Map(this.$refs.map, {
-                center: { lat: 34.7024898,lng: 135.4937619 },
+                center,
                 zoom: 13
             })
 
             // マップにマーカーを設定してみる
+            new google.maps.Marker({
+                position: center,
+                map
+            })
 
         }
     }
