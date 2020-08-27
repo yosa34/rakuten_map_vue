@@ -1,6 +1,6 @@
 <template>
     <div id="searchBox" ref="searchBox">
-        <form class="row" id="search">
+        <form class="row" id="search" @submit.prevent="submit">
             <div class="col s6 input-field">
                 <input type="text" name="checkinDate" @change="changeCheckinDate" id="date1" class="datepicker">
                 <label for="date1">チェックイン日</label>
@@ -64,6 +64,9 @@
             },
             changeCheckoutDate(evt) {
                 this.conditions.checkoutDate = evt.target.value
+            },
+            submit() {
+                this.$emit('search', this.conditions)
             }
         }
     }

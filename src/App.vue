@@ -16,7 +16,7 @@
         <div class="row">
           <div class="col s12">
             <!--   #検索フォームを以下に設定する   -->
-            <search-form :conditions="conditions" />
+            <search-form :conditions="conditions" @search="searchHotels" />
           </div>
         </div>
 
@@ -48,6 +48,11 @@
           checkoutDate: '',
           adultNum: 1
         }
+      }
+    },
+    methods: {
+      searchHotels(conditions) {
+        console.log('searchイベント:', conditions)
       }
     }
   }
