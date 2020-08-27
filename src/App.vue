@@ -33,6 +33,7 @@
 <script>
   import PlanMap from './components/PlanMap.vue'
   import SearchForm from './components/SearchForm.vue'
+  import getHotels from './api/getHotels'
   /**
    * 各種コンポーネントを読み込み、それぞれにデータを受け渡す
    * また、各コンポーネントで発生したイベントを受け取り、状態を変更する
@@ -55,6 +56,11 @@
     methods: {
       searchHotels(conditions) {
         console.log('searchイベント:', conditions)
+        getHotels({
+          ...conditions,
+          latitude: this.center.lat,
+          longitude: this.center.lng
+        })
       }
     }
   }
