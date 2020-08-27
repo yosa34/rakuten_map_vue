@@ -35,7 +35,13 @@
      */
     /* global M */
     export default {
-        name: 'SearchForm'
+        name: 'SearchForm',
+        props: {
+            conditions: {
+                type: Object,
+                required: true
+            }
+        },
         mounted() {
             // カレンダーUIを有効化する
             // ref="searchBox"が指定されいるDOMを取得し、
