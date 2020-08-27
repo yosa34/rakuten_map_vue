@@ -16,6 +16,7 @@
         <div class="row">
           <div class="col s12">
             <!--   #検索フォームを以下に設定する   -->
+            <search-form />
           </div>
         </div>
 
@@ -31,6 +32,7 @@
 
 <script>
   import PlanMap from './components/PlanMap.vue'
+  import SearchForm from './components/SearchForm.vue'
   /**
    * 各種コンポーネントを読み込み、それぞれにデータを受け渡す
    * また、各コンポーネントで発生したイベントを受け取り、状態を変更する
@@ -38,7 +40,7 @@
    */
   export default {
     name: 'App',
-    components: { PlanMap }
+    components: { PlanMap, SearchForm }
   }
 </script>
 
