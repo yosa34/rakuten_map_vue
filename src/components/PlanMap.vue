@@ -28,6 +28,7 @@
 
             // マップにマーカーを設定してみる
             new google.maps.Marker({
+                animation: google.maps.Animation.BOUNCE,
                 position: center,
                 map
             })
