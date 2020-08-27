@@ -2,12 +2,12 @@
     <div id="searchBox" ref="searchBox">
         <form class="row" id="search">
             <div class="col s6 input-field">
-                <input type="text" name="checkinDate" id="date1" class="datepicker">
+                <input type="text" name="checkinDate" @change="changeCheckinDate" id="date1" class="datepicker">
                 <label for="date1">チェックイン日</label>
             </div>
 
             <div class="col s6 input-field">
-                <input type="text" name="checkoutDate" id="date2" class="datepicker">
+                <input type="text" name="checkoutDate" @change="changeCheckoutDate" id="date2" class="datepicker">
                 <label for="date2">チェックアウト日</label>
             </div>
 
@@ -46,8 +46,25 @@
             // カレンダーUIを有効化する
             // ref="searchBox"が指定されいるDOMを取得し、
             // その中にある.datepickerのDOMを指定する
-            const datepikcers = this.$refs.searchBox.querySelectorAll('.datepicker')
-            M.Datepicker.init(datepikcers, {})
+            // check(in|out)DateのDOMをそれぞれ取得し、各DOM毎にDatepickerを初期化する
+            // その際に、それぞれに対応したプロパティーをonSelectで操作するように記述する
+            const inDate = this.$refs.searchBox.querySelectorAll('#date1')
+            const outDate = this.$refs.searchBox.querySelectorAll('#date2')
+            const format = 'yyyy-mm-dd'
+            M.Datepicker.init(inDate, {
+                format,
+            })
+            M.Datepicker.init(outDate, {
+                format,
+            })
+        },
+        methods: { 
+            changeCheckinDate(evt) {
+                this.conditions.checkinDate = evt.target.value
+            },
+            changeCheckoutDate(evt) {
+                this.conditions.checkoutDate = evt.target.value
+            }
         }
     }
 </script>
