@@ -12,7 +12,7 @@
             </div>
 
             <div class="col s12 input-field">
-                <input type="number" name="adultNum" id="adult_num">
+                <input type="number" v-model.number="conditions.adultNum" name="adultNum" id="adult_num">
                 <label for="adult_num">大人人数</label>
             </div>
             <div class="col s12 l6 offset-l3">
