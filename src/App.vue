@@ -47,7 +47,9 @@
           checkinDate: '',
           checkoutDate: '',
           adultNum: 1
-        }
+        },
+        // 地図の中央の緯度経度を管理するためのオブジェクト
+        center: { lat: 34.7024898,lng: 135.4937619 }
       }
     },
     methods: {
