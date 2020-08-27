@@ -16,7 +16,7 @@
         <div class="row">
           <div class="col s12">
             <!--   #検索フォームを以下に設定する   -->
-            <search-form />
+            <search-form :conditions="conditions" />
           </div>
         </div>
 
@@ -40,7 +40,16 @@
    */
   export default {
     name: 'App',
-    components: { PlanMap, SearchForm }
+    components: { PlanMap, SearchForm },
+    data() {
+      return {
+        conditions: {
+          checkinDate: '',
+          checkoutDate: '',
+          adultNum: 1
+        }
+      }
+    }
   }
 </script>
 
