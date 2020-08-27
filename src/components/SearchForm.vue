@@ -1,5 +1,5 @@
 <template>
-    <div id="searchBox">
+    <div id="searchBox" ref="searchBox">
         <form class="row" id="search">
             <div class="col s6 input-field">
                 <input type="text" name="checkinDate" id="date1" class="datepicker">
@@ -36,5 +36,12 @@
     /* global M */
     export default {
         name: 'SearchForm'
+        mounted() {
+            // カレンダーUIを有効化する
+            // ref="searchBox"が指定されいるDOMを取得し、
+            // その中にある.datepickerのDOMを指定する
+            const datepikcers = this.$refs.searchBox.querySelectorAll('.datepicker')
+            M.Datepicker.init(datepikcers, {})
+        }
     }
 </script>
