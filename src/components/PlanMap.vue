@@ -17,7 +17,13 @@
      */
     export default {
         name: 'PlanMap',
-        props: {},
+        props: {
+            // プランの一覧
+            plans: {
+                type: Array,
+                default: () => ([])
+            }
+        },
         data () {},
         mounted() {
             const center = { lat: 34.7024898,lng: 135.4937619 }
