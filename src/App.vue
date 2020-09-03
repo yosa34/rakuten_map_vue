@@ -34,6 +34,7 @@
   import PlanMap from './components/PlanMap.vue'
   import SearchForm from './components/SearchForm.vue'
   import getHotels from './api/getHotels'
+  import Plans from './model/Plans'
   /**
    * 各種コンポーネントを読み込み、それぞれにデータを受け渡す
    * また、各コンポーネントで発生したイベントを受け取り、状態を変更する
@@ -50,7 +51,8 @@
           adultNum: 1
         },
         // 地図の中央の緯度経度を管理するためのオブジェクト
-        center: { lat: 34.7024898,lng: 135.4937619 }
+        center: { lat: 34.7024898,lng: 135.4937619 },
+        plans: []
       }
     },
     methods: {
@@ -60,6 +62,13 @@
           ...conditions,
           latitude: this.center.lat,
           longitude: this.center.lng
+        }).then((resp) => {
+          console.log(resp)
+          // ホテルの一覧データを取得する
+          const hotels = resp.data.hotels
+          const plans = hotels.map((hotel) => new Plans(hotel))
+          console.log(plans)
+          this.plans = plans
         })
       }
     }
