@@ -7,7 +7,7 @@
     </nav>
 
     <!--   #mapエリアを以下に設定する   -->
-    <plan-map />
+    <plan-map :plans="plans" />
 
 
     <div class="side-area">

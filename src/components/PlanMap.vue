@@ -39,6 +39,11 @@
                 map
             })
 
+        },
+        watch: {
+            plans(newPlans, oldPlans) {
+                console.log(newPlans, oldPlans)
+            }
         }
     }
 
