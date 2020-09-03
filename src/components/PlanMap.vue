@@ -27,6 +27,7 @@
         data () {
             return {
                 map: null,
+                markers: []
             }
         },
         mounted() {
@@ -53,11 +54,10 @@
         methods: {
             // 地図にplansのマーカーをセットする
             setMarker() {
-                const markers = this.plans.map(plan => new google.maps.Marker({
+                this.markers = this.plans.map(plan => new google.maps.Marker({
                     position: plan.center,
                     map: this.map
                 }))
-                console.log(markers)
             }
         }
     }
