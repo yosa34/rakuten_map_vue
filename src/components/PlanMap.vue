@@ -24,25 +24,40 @@
                 default: () => ([])
             }
         },
-        data () {},
+        data () {
+            return {
+                map: null,
+            }
+        },
         mounted() {
             const center = { lat: 34.7024898,lng: 135.4937619 }
-            const map = new google.maps.Map(this.$refs.map, {
+            this.map = new google.maps.Map(this.$refs.map, {
                 center,
                 zoom: 13
             })
 
             // マップにマーカーを設定してみる
-            new google.maps.Marker({
-                animation: google.maps.Animation.BOUNCE,
-                position: center,
-                map
-            })
+            // new google.maps.Marker({
+            //     animation: google.maps.Animation.BOUNCE,
+            //     position: center,
+            //     map
+            // })
 
         },
         watch: {
             plans(newPlans, oldPlans) {
                 console.log(newPlans, oldPlans)
+                this.setMarker()
+            }
+        },
+        methods: {
+            // 地図にplansのマーカーをセットする
+            setMarker() {
+                const markers = this.plans.map(plan => new google.maps.Marker({
+                    position: plan.center,
+                    map: this.map
+                }))
+                console.log(markers)
             }
         }
     }
