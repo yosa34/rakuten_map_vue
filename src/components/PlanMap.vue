@@ -48,7 +48,8 @@
         watch: {
             plans(newPlans, oldPlans) {
                 console.log(newPlans, oldPlans)
-                this.setMarker()
+                this.resetMarker();
+                this.setMarker();
             }
         },
         methods: {
@@ -58,6 +59,16 @@
                     position: plan.center,
                     map: this.map
                 }))
+            },
+            //  markersで保存されているマーカーの削除処理
+            resetMarker(){
+                for(var i=0; i < this.markers.length; i++){
+                    this.markers[i].setMap(null);
+                }
+                this.markers = array.forEach(markers => {
+                    markers.setMap(null);
+                });
+                this.markers = new Array();
             }
         }
     }

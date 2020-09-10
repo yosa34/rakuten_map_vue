@@ -13,5 +13,5 @@ export default function (params = {}) {
                 applicationId: process.env.VUE_APP_APP_ID
             }
         }
-        )
+    )
 }
