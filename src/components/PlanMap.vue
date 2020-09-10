@@ -66,7 +66,8 @@
                     this.markers[i].setMap(null);
                 }
                 this.markers = array.forEach(markers => {
-                    markers.setMap(null);
+                     this.markers.forEach((marker) => marker.setMap(null))
+                    this.markers = []
                 });
                 this.markers = new Array();
             }
